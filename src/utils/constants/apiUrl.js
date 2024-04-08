@@ -1,4 +1,4 @@
-// const base_url = 'back3a.fl4ir.com/api/auth';
+// const base_url = 'https://back3a.fl4ir.com/api/auth';
 
 const base_url = import.meta.env.VITE_API_BASE_URL;
 

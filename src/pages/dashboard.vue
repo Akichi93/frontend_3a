@@ -229,7 +229,7 @@ export default {
     // async checkInternetConnectivity() {
     //   try {
     //     const response = await fetch(
-    //       "back3a.fl4ir.com/api/check-internet-connection"
+    //       "https://back3a.fl4ir.com/api/check-internet-connection"
     //     );
     //     const data = await response.json();
 

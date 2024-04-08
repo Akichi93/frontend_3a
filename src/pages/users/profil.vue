@@ -194,7 +194,7 @@ export default {
             };
 
             axios
-                .post("back3a.fl4ir.com/api/auth/changepassword", {
+                .post("https://back3a.fl4ir.com/api/auth/changepassword", {
                     oldpassword: this.oldpassword,
                     newpassword: this.newpassword,
                 }, { headers })
