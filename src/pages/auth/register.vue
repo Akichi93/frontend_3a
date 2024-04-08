@@ -4,7 +4,7 @@
       <div class="account-content">
         <div class="container">
           <div class="account-logo">
-            <a href=""><img src="" alt="Courtage" /></a>
+            <a href=""><img src="/1.png" alt="Courtage" /></a>
           </div>
 
           <div class="account-box">
