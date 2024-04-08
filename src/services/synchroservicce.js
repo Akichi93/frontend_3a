@@ -12,27 +12,27 @@ export default {
 
         // Synchroniser uniquement les données qui ont sync = 0
         if (clientsToSync.length > 0) {
-            await this.syncData('https://fl4ir.loca.lt/api/auth/sync-clients', clientsToSync, 'clients');
+            await this.syncData('back3a.fl4ir.com/api/auth/sync-clients', clientsToSync, 'clients');
         }
 
         if (prospectsToSync.length > 0) {
-            await this.syncData('https://fl4ir.loca.lt/api/auth/sync-prospects', prospectsToSync, 'prospects');
+            await this.syncData('back3a.fl4ir.com/api/auth/sync-prospects', prospectsToSync, 'prospects');
         }
 
         if (branchesToSync.length > 0) {
-            await this.syncData('https://fl4ir.loca.lt/api/auth/sync-branches', branchesToSync, 'branches');
+            await this.syncData('back3a.fl4ir.com/api/auth/sync-branches', branchesToSync, 'branches');
         }
 
         if (compagniesToSync.length > 0) {
-            await this.syncData('https://fl4ir.loca.lt/api/auth/sync-compagnies', compagniesToSync, 'compagnies');
+            await this.syncData('back3a.fl4ir.com/api/auth/sync-compagnies', compagniesToSync, 'compagnies');
         }
 
         if (apporteursToSync.length > 0) {
-            await this.syncData('https://fl4ir.loca.lt/api/auth/sync-apporteurs', apporteursToSync, 'apporteurs');
+            await this.syncData('back3a.fl4ir.com/api/auth/sync-apporteurs', apporteursToSync, 'apporteurs');
         }
 
         if (contratsToSync.length > 0) {
-            await this.syncData('https://fl4ir.loca.lt/api/auth/sync-contrats', contratsToSync, 'contrats');
+            await this.syncData('back3a.fl4ir.com/api/auth/sync-contrats', contratsToSync, 'contrats');
         }
     },
 

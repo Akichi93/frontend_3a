@@ -131,7 +131,7 @@ export default {
 
     getEntreprise(id_entreprise) {
       axios
-        .get("https://fl4ir.loca.lt/api/auth/entreprises/edit/" + id_entreprise)
+        .get("back3a.fl4ir.com/api/auth/entreprises/edit/" + id_entreprise)
         .then((response) => {
           this.entreprisetoedit = response.data;
         })

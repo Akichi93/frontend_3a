@@ -138,7 +138,7 @@ export default {
         const response = await fetch(`${apiUrl}/api/check-internet-connection`);
         // Make an API request to your endpoint
         // const response = await fetch(
-        //   "https://fl4ir.loca.lt/api/check-internet-connection"
+        //   "back3a.fl4ir.com/api/check-internet-connection"
         // );
 
         const data = await response.json();

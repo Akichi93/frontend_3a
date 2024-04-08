@@ -194,7 +194,7 @@ export default {
             };
 
             axios
-                .post("https://fl4ir.loca.lt/api/auth/changepassword", {
+                .post("back3a.fl4ir.com/api/auth/changepassword", {
                     oldpassword: this.oldpassword,
                     newpassword: this.newpassword,
                 }, { headers })
