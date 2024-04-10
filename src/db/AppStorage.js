@@ -1302,81 +1302,74 @@ class AppStorage {
         try {
             // Obtenir les données des avenants
             const avenants = await this.getData('avenants') || [];
-
+    
             // Initialiser la somme des commissions
             let commissionCourtierSum = 0;
-
+    
             // Parcourir les avenants pour calculer la somme des commissions de courtier
             avenants.forEach(avenant => {
-                // Vérifier si la valeur est un nombre avant de l'ajouter à la somme
+                // Extraire et convertir la commission de courtier en nombre
                 const commission = parseFloat(avenant.commission_courtier);
+    
+                // Vérifier si la commission est un nombre valide
                 if (!isNaN(commission)) {
-                    // Ajouter la commission de cet avenant à la somme totale
+                    // Ajouter la commission à la somme totale
                     commissionCourtierSum += commission;
                 }
             });
-
-            // Si la somme est toujours NaN, cela signifie qu'il n'y avait aucune commission valide à ajouter
-            if (isNaN(commissionCourtierSum)) {
+    
+            // Vérifier si la somme calculée est NaN ou vide
+            if (isNaN(commissionCourtierSum) || commissionCourtierSum === 0) {
                 throw new Error('Aucune commission valide à ajouter.');
             }
-
-            // Arrondir la somme à deux chiffres après la virgule
-            commissionCourtierSum = commissionCourtierSum.toFixed(2);
-
-            // Formater la somme avec séparateur de milliers et deux chiffres après la virgule
-            const formattedCommissionCourtierSum = parseFloat(commissionCourtierSum).toLocaleString('fr-FR', {
+    
+            // Formater la somme avec un séparateur de milliers et deux chiffres après la virgule
+            const formattedSum = commissionCourtierSum.toLocaleString('fr-FR', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-
+    
             // Retourner la somme calculée formatée
-            return formattedCommissionCourtierSum;
+            return formattedSum;
         } catch (error) {
             console.error('Erreur lors du calcul de la somme de commission courtier :', error);
             throw error;
         }
     }
-
-
-
-
-
-
+    
 
     static async getCommissionCompagnieSumByYear(annee) {
         try {
             // Obtenir les données des avenants
             const avenants = await this.getData('avenants') || [];
-
-            // Initialiser la somme des commissions
+    
+            // Initialiser la somme des commissions de la compagnie pour l'année spécifiée
             let commissionCompagnieSum = 0;
-
+    
             // Parcourir les avenants pour calculer la somme des commissions de la compagnie pour l'année spécifiée
             avenants.forEach(avenant => {
-                // Extraire l'année de la date d'effet_police de chaque avenant
-                const anneeAvenant = avenant.date_debut.substring(0, 4); // Supposons que la propriété effet_police existe dans chaque objet avenant
-
+                // Extraire l'année de la date de début de chaque avenant
+                const anneeAvenant = avenant.date_debut.substring(0, 4); // Supposons que la propriété date_debut existe dans chaque objet avenant
+    
                 // Vérifier si l'année de l'avenant correspond à l'année spécifiée
                 if (anneeAvenant === annee.toString()) {
                     // Ajouter la commission de la compagnie de cet avenant à la somme totale
-                    commissionCompagnieSum += avenant.commission_courtier || 0;
+                    const commission = parseFloat(avenant.commission_courtier) || 0;
+                    commissionCompagnieSum += commission;
                 }
             });
-
-            // Formater le résultat avec séparateur de milliers et deux chiffres après la virgule
-            const formattedCommissionSum = commissionCompagnieSum.toLocaleString('fr-FR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-
+    
+            // Formater la somme avec un séparateur de milliers si nécessaire
+            const formattedCommissionSum = commissionCompagnieSum.toLocaleString('fr-FR');
+    
             // Retourner la somme calculée formatée
             return formattedCommissionSum;
         } catch (error) {
-            console.error('Erreur lors du calcul de la somme de commission de la compagnie :', error);
+            console.error('Erreur lors du calcul de la somme de commission de la compagnie pour une année spécifique :', error);
             throw error;
         }
     }
+    
 
 
 
