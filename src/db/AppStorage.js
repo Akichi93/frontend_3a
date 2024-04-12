@@ -71,7 +71,9 @@ class AppStorage {
             // Gestion des conflits : fusionner les données existantes avec les nouvelles données
             if (Array.isArray(existingData) && Array.isArray(data)) {
                 const mergedData = existingData.concat(data);
+                // dataEncrypted = LocalService.encrypte(mergedData)
                 await store.put(mergedData, key);
+                // await store.put(dataEncrypted, key);
                 console.log(`Données fusionnées à apiData dans IndexedDB avec succès`);
             } else {
                 console.error('Les données existantes ou les nouvelles données ne sont pas au format de tableau.');
@@ -423,6 +425,15 @@ class AppStorage {
         return this.getData('brancheprospects') || [];
     }
 
+    static async getBrancheProspectsByuuidProspect(uuidBrancheProspect) {
+        const prospects = await this.getData('brancheprospects') || [];
+
+        // Filtrer les prospects en fonction de uuidBrancheProspect
+        const filteredProspects = prospects.filter(prospect => prospect.uuidBrancheProspect === uuidBrancheProspect);
+
+        return filteredProspects;
+    }
+
     static async getDifferenceOfBranches() {
         const branches = await this.getBranches();
         const brancheprospects = await this.getData('brancheprospects') || [];
@@ -446,8 +457,35 @@ class AppStorage {
 
 
     // Contrats
-    static async storeBrancheProspects(contrats) {
+    static async storeContrats(contrats) {
         await this.storeData('contrats', contrats);
+    }
+
+    static async deleteContrats(uuidContrat, newSupprime, newSyncState) {
+        // Obtenez la liste des prospects
+        const allContrats = await this.getData('contrats') || [];
+
+        // Recherche du prospect par son UUID
+        const contratIndex = allContrats.findIndex(contrat => contrat.uuidContrat === uuidContrat);
+
+        console.log(contratIndex)
+
+        if (contratIndex !== -1) {
+            // Mettre à jour l'état du prospect
+            allContrats[contratIndex].supprimer_contrat = newSupprime;
+
+            // Mettre à jour l'état de synchronisation
+            allContrats[contratIndex].sync = newSyncState;
+
+            // Sauvegarder les données mises à jour
+            await this.updateDataInIndexedDB('contrats', allContrats);
+
+            console.log(allContrats)
+
+            return allContrats;
+        } else {
+            throw new Error('Avenant non trouvé');
+        }
     }
 
     static async searchContratsByName(name) {
@@ -594,11 +632,7 @@ class AppStorage {
         return sommeCommissions;
     }
 
-
-
     static async getAvenantByUuid(uuidAvenant) {
-
-
         const allAvenants = await this.getData('avenants') || [];
         return allAvenants.find(avenant => avenant.uuidAvenant === uuidAvenant);
     }
@@ -609,9 +643,7 @@ class AppStorage {
         const allAvenants = await this.getData('avenants') || [];
 
         // Recherche du prospect par son UUID
-        const avenantIndex = allAvenants.findIndex(prospect => prospect.uuidAvenant === uuidAvenant);
-
-        console.log(avenantIndex)
+        const avenantIndex = allAvenants.findIndex(avenant => avenant.uuidAvenant === uuidAvenant);
 
         if (avenantIndex !== -1) {
             // Mettre à jour l'état du prospect
@@ -636,7 +668,7 @@ class AppStorage {
         const allAvenants = await this.getData('avenants') || [];
 
         // Recherche du prospect par son UUID
-        const avenantIndex = allAvenants.findIndex(prospect => prospect.uuidAvenant === uuidAvenant);
+        const avenantIndex = allAvenants.findIndex(avenant => avenant.uuidAvenant === uuidAvenant);
 
         if (avenantIndex !== -1) {
             // Mettre à jour l'état du prospect
@@ -676,6 +708,31 @@ class AppStorage {
             await this.updateDataInIndexedDB('avenants', allAvenants);
 
             console.log(allAvenants)
+
+            return allAvenants;
+        } else {
+            throw new Error('Avenant non trouvé');
+        }
+    }
+
+    static async deleteAvenants(uuidContrat, newDelete, newSyncState) {
+        // Obtenez la liste des prospects
+        const allAvenants = await this.getData('avenants') || [];
+
+        // Recherche du prospect par son UUID
+        const avenantIndex = allAvenants.findIndex(avenant => avenant.uuidContrat === uuidContrat);
+
+        console.log(avenantIndex)
+
+        if (avenantIndex !== -1) {
+            // Mettre à jour l'état de l'avenant
+            allAvenants[avenantIndex].supprimer_avenant = newDelete;
+
+            // Mettre à jour l'état de synchronisation
+            allAvenants[avenantIndex].sync = newSyncState;
+
+            // Sauvegarder les données mises à jour
+            await this.updateDataInIndexedDB('avenants', allAvenants);
 
             return allAvenants;
         } else {
@@ -1301,34 +1358,35 @@ class AppStorage {
     static async getCommissionCompagnieSum() {
         try {
             // Obtenir les données des avenants
-            const avenants = await this.getData('avenants') || [];
-
+            const avenants = await this.getData('avenants');
+    
+            // Vérifier si des avenants ont été récupérés
+            if (!avenants || avenants.length === 0) {
+                console.warn('Aucun avenant trouvé. La somme de commission courtier est donc 0.');
+                return '0,00'; // Retourner une valeur par défaut ou vide
+            }
+    
             // Initialiser la somme des commissions
             let commissionCourtierSum = 0;
-
+    
             // Parcourir les avenants pour calculer la somme des commissions de courtier
             avenants.forEach(avenant => {
                 // Extraire et convertir la commission de courtier en nombre
                 const commission = parseFloat(avenant.commission_courtier);
-
+    
                 // Vérifier si la commission est un nombre valide
                 if (!isNaN(commission)) {
                     // Ajouter la commission à la somme totale
                     commissionCourtierSum += commission;
                 }
             });
-
-            // Vérifier si la somme calculée est NaN ou vide
-            if (isNaN(commissionCourtierSum) || commissionCourtierSum === 0) {
-                throw new Error('Aucune commission valide à ajouter.');
-            }
-
+    
             // Formater la somme avec un séparateur de milliers et deux chiffres après la virgule
             const formattedSum = commissionCourtierSum.toLocaleString('fr-FR', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-
+    
             // Retourner la somme calculée formatée
             return formattedSum;
         } catch (error) {
@@ -1336,7 +1394,7 @@ class AppStorage {
             throw error;
         }
     }
-
+    
 
     static async getCommissionCompagnieSumByYear(annee) {
         try {
@@ -1869,7 +1927,7 @@ class AppStorage {
     }
 
     //Reglements
-    static async storeRegelements(reglements) {
+    static async storeReglements(reglements) {
         await this.storeData('reglements', reglements);
     }
 
@@ -1904,8 +1962,6 @@ class AppStorage {
 
 
 
-
-
     // statistiques
 
     static async getAvenantsGroupedByYear() {
@@ -1927,7 +1983,7 @@ class AppStorage {
     static async getContratsByYear(annee) {
 
         // Récupérer tous les contrats
-        const contrats = await this.getData('contrats') || [];
+        const contrats = await this.getContrats();
 
         // Filtrer les contrats pour obtenir ceux de l'année spécifiée
         const contratsDeAnnee = contrats.filter(contrat => {
@@ -1995,7 +2051,7 @@ class AppStorage {
         return contratsFiltres;
     }
 
-   
+
 
 
     static async getCommissionApporteurSumByBranch(annee, branche) {
@@ -2003,17 +2059,17 @@ class AppStorage {
             // Obtenir les données des avenants
             const avenants = await this.getData('avenants') || [];
             const branches = await this.getData('branches') || [];
-    
+
             // Initialiser la somme des commissions
             let commissionSum = 0;
-    
+
             // Parcourir les avenants pour calculer la somme des commissions d'apporteurs pour l'année spécifiée et la branche spécifiée
             avenants.forEach(avenant => {
                 // Extraire l'année de la date de début de chaque avenant
                 const anneeAvenant = avenant.date_debut.substring(0, 4);
-               
+
                 let uuidBrancheFound = null; // Initialiser la variable pour stocker l'UUID trouvé
-    
+
                 // Parcourir les branches pour trouver l'UUID correspondant au nom de la branche spécifié
                 for (const branch of branches) {
                     if (branch.nom_branche === avenant.nom_branche) {
@@ -2021,23 +2077,23 @@ class AppStorage {
                         break; // Sortir de la boucle dès qu'une correspondance est trouvée
                     }
                 }
-    
+
                 // Vérifier si l'année de l'avenant correspond à l'année spécifiée et que la branche correspond
                 if (anneeAvenant === annee.toString() && uuidBrancheFound && uuidBrancheFound === branche) {
                     // Convertir la commission d'apporteur en nombre décimal
                     const commission = parseFloat(avenant.commission || 0);
-    
+
                     // Ajouter la commission de cet avenant à la somme totale
                     commissionSum += commission;
                 }
             });
-    
+
             // Formater la somme calculée avec séparateur de milliers et deux chiffres après la virgule
             const formattedCommissionSum = commissionSum.toLocaleString('fr-FR', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-    
+
             // Retourner la somme calculée formatée
             return formattedCommissionSum;
         } catch (error) {
@@ -2045,22 +2101,22 @@ class AppStorage {
             throw error;
         }
     }
-    
+
     static async getCommissionCompagnieSumByBranch(annee, branche) {
         try {
             // Obtenir les données des avenants
             const avenants = await this.getData('avenants') || [];
             const branches = await this.getData('branches') || [];
-    
+
             // Initialiser la somme des commissions
             let commissionSum = 0;
-    
+
             // Parcourir les avenants pour calculer la somme des commissions d'apporteurs pour l'année spécifiée et la branche spécifiée
             avenants.forEach(avenant => {
                 // Extraire l'année de la date de début de chaque avenant
                 const anneeAvenant = avenant.date_debut.substring(0, 4);
                 let uuidBrancheFound = null; // Initialiser la variable pour stocker l'UUID trouvé
-    
+
                 // Parcourir les branches pour trouver l'UUID correspondant au nom de la branche spécifié
                 for (const branch of branches) {
                     if (branch.nom_branche === avenant.nom_branche) {
@@ -2068,23 +2124,23 @@ class AppStorage {
                         break; // Sortir de la boucle dès qu'une correspondance est trouvée
                     }
                 }
-    
+
                 // Vérifier si l'année de l'avenant correspond à l'année spécifiée et que la branche correspond
                 if (anneeAvenant === annee.toString() && uuidBrancheFound && uuidBrancheFound === branche) {
                     // Convertir la commission d'apporteur en nombre décimal
                     const commission = parseFloat(avenant.commission_courtier || 0);
-    
+
                     // Ajouter la commission de cet avenant à la somme totale
                     commissionSum += commission;
                 }
             });
-    
+
             // Formater la somme calculée avec séparateur de milliers et deux chiffres après la virgule
             const formattedCommissionSum = commissionSum.toLocaleString('fr-FR', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2
             });
-    
+
             // Retourner la somme calculée formatée
             return formattedCommissionSum;
         } catch (error) {
@@ -2092,7 +2148,7 @@ class AppStorage {
             throw error;
         }
     }
-    
+
 
 
 
@@ -2100,16 +2156,16 @@ class AppStorage {
         try {
             const avenants = await this.getData('avenants') || [];
             const branches = await this.getData('branches') || [];
-    
+
             // Initialiser le tableau de résultats
             const results = [];
-    
+
             // Parcourir les avenants pour calculer la somme des accessoires et de la prime nette pour chaque compagnie
             avenants.forEach(avenant => {
                 // Extraire l'année de la date d'effet_police de chaque avenant
                 const anneeAvenant = avenant.date_debut.substring(0, 4);
                 let uuidBrancheFound = null; // Initialiser la variable pour stocker l'UUID trouvé
-    
+
                 // Parcourir les branches pour trouver l'UUID correspondant au nom de la branche spécifié
                 for (const branch of branches) {
                     if (branch.nom_branche === avenant.nom_branche) {
@@ -2117,16 +2173,16 @@ class AppStorage {
                         break; // Sortir de la boucle dès qu'une correspondance est trouvée
                     }
                 }
-    
+
                 // Vérifier si l'année de l'avenant correspond à l'année spécifiée et que la branche correspond
                 if (anneeAvenant === annee.toString() && uuidBrancheFound && uuidBrancheFound === branche) {
                     // Convertir les valeurs d'accessoires et de prime nette en nombres décimaux
                     const accessoires = parseFloat(avenant.accessoires || 0);
                     const primeNette = parseFloat(avenant.prime_nette || 0);
-    
+
                     // Calculer la somme des accessoires et de la prime nette de cet avenant
                     const sum = accessoires + primeNette;
-    
+
                     // Ajouter la somme calculée et le nom de la compagnie au tableau des résultats
                     results.push({
                         name: avenant.nom_compagnie,
@@ -2134,7 +2190,7 @@ class AppStorage {
                     });
                 }
             });
-    
+
             // Retourner le tableau contenant les résultats
             return results;
         } catch (error) {
@@ -2142,7 +2198,7 @@ class AppStorage {
             throw error;
         }
     }
-    
+
 
     static async getAccessoiresPrimeNetteSumWithMonthByBranch(annee, branche) {
         try {
@@ -2248,7 +2304,7 @@ class AppStorage {
                 y: result.y  // Ajouter le séparateur de milliers
             }));
 
-        
+
 
             return formattedResults;
         } catch (error) {
@@ -2307,7 +2363,7 @@ class AppStorage {
     static async getDataByYearAndBranch(year, branch) {
         if (branch == 'Aucune branche sélectionnée') {
             // Si year est null, compter les prospects, les clients et les sinistres
-            const contrats = await this.getData('contrats') || [];
+            const contrats = await this.getContrats();
             const prospects = await this.getData('prospects') || [];
             const clients = await this.getData('clients') || [];
             const sinistres = await this.getData('sinistres') || [];
