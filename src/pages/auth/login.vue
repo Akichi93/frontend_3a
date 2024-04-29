@@ -4,7 +4,9 @@
             <div class="account-content">
                 <div class="container">
                     <div class="account-logo">
-                        <a href=""><img src="" alt="COURTAGE" style="width: 30%;"></a>
+                        <!-- <a href=""> -->
+                            <img src="/1.png" alt="COURTAGE" style="width: 30%;">
+                        <!-- </a> -->
                     </div>
 
                     <div class="account-box">
@@ -33,10 +35,10 @@
                                 <div class="form-group text-center">
                                     <button class="btn btn-primary account-btn" type="submit">Connexion</button>
                                 </div>
-                                <div class="account-footer">
+                                <!-- <div class="account-footer">
                                     <p>Vous n'avez pas encore de compte ? <router-link to="/register">Demande de
                                             compte</router-link></p>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
