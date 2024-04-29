@@ -4,7 +4,7 @@
             <div class="account-content">
                 <div class="container">
                     <div class="account-logo">
-                        <a href=""><img src="/1.png" alt="COURTAGE" style="width: 30%;"></a>
+                        <a href=""><img src="" alt="COURTAGE" style="width: 30%;"></a>
                     </div>
 
                     <div class="account-box">
@@ -68,6 +68,7 @@ export default {
         login() {
             axios.post(apiUrl.authentification, this.form)
                 .then(res => {
+                    //Metre la logique de vérification du mode
                     User.responseAfterLogin(res)
                     this.$router.push({ name: 'localstorage' })
                 })

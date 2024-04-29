@@ -1,5 +1,5 @@
 // GraveDataAPI.js
-// const API_BASE_URL = 'https://back3a.fl4ir.com/api/auth/';
+// const API_BASE_URL = 'https://fl4ir.loca.lt/api/auth/';
 import { apiUrl } from "../utils/constants/apiUrl";
 import AppStorage from "./AppStorage";
 import axios from "axios";
@@ -224,6 +224,29 @@ export default {
         }
     },
 
+    async getGraveAutomobilesData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+
+            const response = await axios.get(apiUrl.getautomobile, { headers });
+            
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des automobiles.');
+            // }
+            const newData = response.data;
+            await AppStorage.updateSyncIndexedDB("automobiles", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des automobiles:', error);
+            throw error;
+        }
+    },
+
     async getGraveGarantiesData() {
         const token = AppStorage.getToken();
 
@@ -246,7 +269,53 @@ export default {
         }
     },
 
-    async getGraveAutomobilesData() {
+    async getGraveSinistresData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+            const response = await axios.get(apiUrl.getsinistre, { headers });
+
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des garanties.');
+            // }
+            const newData = await response.json();
+            await AppStorage.updateSyncIndexedDB("sinistres", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des sinistres:', error);
+            throw error;
+        }
+    },
+
+    async getGraveReglementsData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+            const response = await axios.get(apiUrl.getreglement, { headers });
+
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des garanties.');
+            // }
+            const newData = await response.json();
+            await AppStorage.updateSyncIndexedDB("reglements", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des reglements:', error);
+            throw error;
+        }
+    },
+
+    
+
+    async getGraveCategoriesData() {
         const token = AppStorage.getToken();
 
         const headers = {
@@ -256,15 +325,107 @@ export default {
 
         try {
 
-            const response = await axios.get(apiUrl.getautomobile, { headers });
+            const response = await axios.get(apiUrl.getcategorie, { headers });
             
             // if (!response.ok) {
             //     throw new Error('Erreur lors de la récupération des données graves des automobiles.');
             // }
             const newData = response.data;
-            await AppStorage.updateSyncIndexedDB("automobiles", newData);
+            await AppStorage.updateSyncIndexedDB("categories", newData);
         } catch (error) {
-            console.error('Erreur lors de la récupération des données graves des automobiles:', error);
+            console.error('Erreur lors de la récupération des données graves des categories:', error);
+            throw error;
+        }
+    },
+
+    async getGraveMarquesData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+
+            const response = await axios.get(apiUrl.getmarque, { headers });
+            
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des automobiles.');
+            // }
+            const newData = response.data;
+            await AppStorage.updateSyncIndexedDB("marques", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des marques:', error);
+            throw error;
+        }
+    },
+
+    async getGraveGenresData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+
+            const response = await axios.get(apiUrl.getgenre, { headers });
+            
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des automobiles.');
+            // }
+            const newData = response.data;
+            await AppStorage.updateSyncIndexedDB("genres", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des genres:', error);
+            throw error;
+        }
+    },
+
+    async getGraveCouleursData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+
+            const response = await axios.get(apiUrl.getcouleur, { headers });
+            
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des automobiles.');
+            // }
+            const newData = response.data;
+            await AppStorage.updateSyncIndexedDB("couleurs", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des couleurs:', error);
+            throw error;
+        }
+    },
+
+    async getGraveEnergiesData() {
+        const token = AppStorage.getToken();
+
+        const headers = {
+            Authorization: "Bearer " + token,
+            "x-access-token": token,
+        };
+
+        try {
+
+            const response = await axios.get(apiUrl.getenergie, { headers });
+            
+            // if (!response.ok) {
+            //     throw new Error('Erreur lors de la récupération des données graves des automobiles.');
+            // }
+            const newData = response.data;
+            await AppStorage.updateSyncIndexedDB("energies", newData);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données graves des energies:', error);
             throw error;
         }
     },

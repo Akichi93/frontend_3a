@@ -1521,7 +1521,7 @@ strong {
 .task-avatar a {
     font-weight: 600;
     font-size: 12px;
-    color: #103C84
+    color: #2980B9
 }
 
 ul {
@@ -1547,7 +1547,7 @@ ul {
 
 .bg-primary,
 .badge-primary {
-    background-color: #103C84 !important
+    background-color: #2980B9 !important
 }
 
 a.bg-primary:focus,
@@ -1615,11 +1615,11 @@ button.bg-danger:hover {
 }
 
 .text-primary {
-    color: #103C84 !important
+    color: #2980B9 !important
 }
 
 .dropdown-menu li>a.text-primary {
-    color: #103C84 !important
+    color: #2980B9 !important
 }
 
 .dropdown-menu li>a.text-success {
@@ -1667,8 +1667,8 @@ button.bg-danger:hover {
 }
 
 .btn-primary {
-    background-color: #103C84;
-    border: 1px solid #103C84;
+    background-color: #2980B9;
+    border: 1px solid #2980B9;
     color: #fff !important
 }
 
@@ -1741,8 +1741,8 @@ button.bg-danger:hover {
 
 .btn-primary.disabled,
 .btn-primary:disabled {
-    background-color: #103C84;
-    border-color: #103C84;
+    background-color: #2980B9;
+    border-color: #2980B9;
     color: #fff
 }
 
@@ -1801,8 +1801,8 @@ button.bg-danger:hover {
 }
 
 .show>.btn-outline-primary.dropdown-toggle {
-    background-color: #103C84;
-    border-color: #103C84
+    background-color: #2980B9;
+    border-color: #2980B9
 }
 
 .show>.btn-outline-primary.dropdown-toggle:focus {
@@ -1901,8 +1901,8 @@ button.bg-danger:hover {
 }
 
 .btn-info {
-    background-color: #103C84;
-    border: 1px solid #103C84
+    background-color: #2980B9;
+    border: 1px solid #2980B9
 }
 
 .btn-info:hover,
@@ -2070,13 +2070,13 @@ button.bg-danger:hover {
 }
 
 .btn-outline-primary {
-    color: #103C84;
-    border-color: #103C84
+    color: #2980B9;
+    border-color: #2980B9
 }
 
 .btn-outline-primary:hover {
-    background-color: #103C84;
-    border-color: #103C84
+    background-color: #2980B9;
+    border-color: #2980B9
 }
 
 .btn-outline-primary.focus,
@@ -2086,14 +2086,14 @@ button.bg-danger:hover {
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-    color: #103C84;
+    color: #2980B9;
     background-color: transparent
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .btn-outline-primary:not(:disabled):not(.disabled):active {
-    background-color: #103C84;
-    border-color: #103C84
+    background-color: #2980B9;
+    border-color: #2980B9
 }
 
 .btn-outline-success {
@@ -2243,22 +2243,22 @@ button.bg-danger:hover {
 .pagination>.active>span,
 .pagination>.active>span:hover,
 .pagination>.active>span:focus {
-    background-color: #103C84;
-    border-color: #103C84
+    background-color: #2980B9;
+    border-color: #2980B9
 }
 
 .pagination>.active>a,
 .pagination>.active>span {
-    color: #103C84
+    color: #2980B9
 }
 
 .pagination>li>a,
 .pagination>li>span {
-    color: #103C84
+    color: #2980B9
 }
 
 .page-link:hover {
-    color: #103C84
+    color: #2980B9
 }
 
 .page-link:focus {
@@ -2266,8 +2266,8 @@ button.bg-danger:hover {
 }
 
 .page-item.active .page-link {
-    background-color: #103C84;
-    border-color: #103C84
+    background-color: #2980B9;
+    border-color: #2980B9
 }
 
 .dropdown-menu {
@@ -2288,7 +2288,7 @@ button.bg-danger:hover {
 
 .dropdown-item.active,
 .dropdown-item:active {
-    background-color: #103C84
+    background-color: #2980B9
 }
 
 .navbar-nav__.open--.dropdown-menu {
@@ -2394,11 +2394,11 @@ button.bg-danger:hover {
 }
 
 .bl-text {
-    color: #103C84
+    color: #2980B9
 }
 
 .org-text {
-    color: #103C84
+    color: #2980B9
 }
 
 .red-text {
@@ -2584,7 +2584,7 @@ button.bg-danger:hover {
 }
 
 .progress .progress-bar {
-    background-color: #103C84
+    background-color: #2980B9
 }
 
 .card-header {
@@ -2770,7 +2770,7 @@ input[type=file].form-control {
 }
 
 .form-focus .form-control:focus {
-    border-color: #103C84
+    border-color: #2980B9
 }
 
 .form-focus.focused .focus-label {
@@ -2983,7 +2983,7 @@ input[type=file].form-control {
     -webkit-transition: all .2s ease;
     -ms-transition: all .2s ease;
     transition: all .2s ease;
-    background: #103C84
+    background: #2980B9
 }
 
 .header .header-left .logo {
@@ -3128,7 +3128,7 @@ input[type=file].form-control {
     height: 14px;
     padding: 0;
     font-size: 9px;
-    background-color: #103C84;
+    background-color: #2980B9;
     position: absolute;
     top: 12px;
     right: 7px
@@ -3165,7 +3165,7 @@ input[type=file].form-control {
 }
 
 .header .user-menu .report-btn span {
-    color: #103C84
+    color: #2980B9
 }
 
 .header .top-nav-search form {
@@ -3431,7 +3431,7 @@ input[type=file].form-control {
 }
 
 .sidebar .sidebar-left {
-    background: #103C84;
+    background: #2980B9;
     width: 70px;
     padding: 10px
 }
@@ -3472,7 +3472,7 @@ input[type=file].form-control {
 }
 
 .sidebar .sidebar-right ul li a.active {
-    color: #103C84
+    color: #2980B9
 }
 
 .sidebar .sidebar-right .menu-arrow {
@@ -3575,7 +3575,7 @@ input[type=file].form-control {
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #103C84
+    background-color: #2980B9
 }
 
 .select2-container--default .select2-selection--multiple {
@@ -3617,7 +3617,7 @@ input[type=file].form-control {
     content: "";
     display: block;
     width: 100%;
-    background-color: #103C84;
+    background-color: #2980B9;
     height: 5px;
     position: relative;
     top: 20px
@@ -3659,7 +3659,7 @@ input[type=file].form-control {
     content: "";
     display: block;
     width: 100%;
-    background-color: #103C84;
+    background-color: #2980B9;
     height: 5px;
     position: relative;
     top: 10px
@@ -3674,7 +3674,7 @@ input[type=file].form-control {
 .nav-tabs.nav-tabs-solid li a:hover {
     background-color: transparent;
     border-color: transparent;
-    color: #103C84
+    color: #2980B9
 }
 
 .video-window .fixed-header .nav>li>a {
@@ -3691,7 +3691,7 @@ input[type=file].form-control {
     content: "";
     display: block;
     width: 5px;
-    background-color: #103C84;
+    background-color: #2980B9;
     height: 100%;
     position: absolute;
     top: 0;
@@ -3728,12 +3728,12 @@ input[type=file].form-control {
 .custom-modal .modal-content .cancel-btn {
     background: #fff8f6;
     border-color: #fff8f6;
-    color: #103C84
+    color: #2980B9
 }
 
 .custom-modal .modal-content .cancel-btn:hover {
-    background-color: #103C84;
-    border: 1px solid #103C84;
+    background-color: #2980B9;
+    border: 1px solid #2980B9;
     color: #fff
 }
 
@@ -3837,7 +3837,7 @@ input[type=file].form-control {
 }
 
 .custom-modal .submit-section .cancel-btn {
-    color: #103C84
+    color: #2980B9
 }
 
 .custom-modal .submit-section .submit-btn {
@@ -3991,8 +3991,8 @@ input[type=file].form-control {
 .continue-btn,
 .cancel-btn {
     background-color: #fff;
-    border: 1px solid #103C84;
-    color: #103C84 !important;
+    border: 1px solid #2980B9;
+    color: #2980B9 !important;
     display: block;
     font-size: 18px;
     font-weight: 600;
@@ -4111,7 +4111,7 @@ input[type=file].form-control {
 }
 
 .table td h2 span {
-    color: #103C84;
+    color: #2980B9;
     display: block;
     font-size: 14px;
     margin-top: 5px;
@@ -4256,7 +4256,7 @@ input[type=file].form-control {
 
 .role-info.role-bg-one {
     background: #fff8f6;
-    color: #103C84
+    color: #2980B9
 }
 
 .role-info.role-bg-three {
@@ -4416,7 +4416,7 @@ input[type=file].form-control {
 
 .punch-info .punch-hours {
     align-items: center;
-    background-color: #103C84;
+    background-color: #2980B9;
     border: 5px solid #e3e3e3;
     font-size: 18px;
     height: 120px;
@@ -4643,7 +4643,7 @@ input[type=file].form-control {
     content: "";
     width: 10px;
     height: 10px;
-    border: 2px solid #103C84;
+    border: 2px solid #2980B9;
     z-index: 2;
     background: #fff;
     border-radius: 100%;
@@ -5116,7 +5116,7 @@ input[type=file].form-control {
 }
 
 .files-list>li .files-cont .files-info .file-author a {
-    color: #103C84;
+    color: #2980B9;
     font-size: 12px;
     text-decoration: underline
 }
@@ -5420,7 +5420,7 @@ input[type=file].form-control {
 
 .call-box {
     display: block;
-    background: #103C84;
+    background: #2980B9;
     background: rgba(255, 120, 73, .6);
     position: sticky;
     top: 0;
@@ -5597,7 +5597,7 @@ input[type=file].form-control {
 
 .settings-menu .sidebar-menu .active a {
     color: #fff;
-    background-color: #103C84;
+    background-color: #2980B9;
     display: block;
     padding: 15px
 }
@@ -5611,7 +5611,7 @@ input[type=file].form-control {
 }
 
 .settings-menu li a.active {
-    color: #103C84 !important;
+    color: #2980B9 !important;
     font-weight: 700 !important
 }
 
@@ -5644,7 +5644,7 @@ input[type=file].form-control {
 .fc-state-down,
 .fc-state-active,
 .fc-state-disabled {
-    background-color: #103C84 !important;
+    background-color: #2980B9 !important;
     color: #fff !important;
     text-shadow: none !important
 }
@@ -6028,7 +6028,7 @@ textarea.form-control {
 }
 
 .error-page .main-wrapper .error-box h1 {
-    color: #103C84;
+    color: #2980B9;
     font-size: 10em
 }
 
@@ -6037,7 +6037,7 @@ textarea.form-control {
 }
 
 .error-page .main-wrapper .error-box .btn-custom {
-    background: #103C84;
+    background: #2980B9;
     color: #fff
 }
 
@@ -6154,11 +6154,11 @@ textarea.form-control {
 }
 
 .project-card .st-card.st-c1 .bg-primary {
-    background-color: #103C84 !important
+    background-color: #2980B9 !important
 }
 
 .project-card .st-card.st-c1 h5 {
-    color: #103C84
+    color: #2980B9
 }
 
 .project-card .st-card.st-c2 .bg-primary {
@@ -6278,7 +6278,7 @@ textarea.form-control {
 .user-card .user-img-sec h4 {
     font-weight: 600;
     font-size: 18px;
-    color: #103C84;
+    color: #2980B9;
     margin-top: 15px;
     font-family: poppins, sans-serif
 }
@@ -6353,7 +6353,7 @@ textarea.form-control {
 }
 
 .task-progress .progress .progress-bar {
-    background-color: #103C84
+    background-color: #2980B9
 }
 
 .first-box {
@@ -6445,7 +6445,7 @@ textarea.form-control {
 }
 
 .att-card .card-body ul h3 {
-    color: #103C84;
+    color: #2980B9;
     font-weight: 800;
     font-size: 28px;
     text-align: center;
@@ -6546,7 +6546,7 @@ textarea.form-control {
 
 .bday-list li a.wish-btn {
     padding: 5px 10px;
-    background-color: #103C84;
+    background-color: #2980B9;
     color: #fff;
     border-radius: 50px
 }
@@ -6590,7 +6590,7 @@ textarea.form-control {
 }
 
 .jb-info li .jb-li-content h3 {
-    color: #103C84;
+    color: #2980B9;
     font-size: 20px;
     font-weight: 700;
     margin: 0
@@ -6611,15 +6611,15 @@ textarea.form-control {
 }
 
 .jb-info li .jb-li-content h2 {
-    color: #103C84;
+    color: #2980B9;
     font-size: 20px;
     font-weight: 700;
     margin: 0
 }
 
 .jb-info .btn-primary {
-    background-color: #103C84;
-    border-color: #103C84;
+    background-color: #2980B9;
+    border-color: #2980B9;
     font-size: 16px;
     font-weight: 700;
     padding: 10px 0;
@@ -6776,7 +6776,7 @@ textarea.form-control {
 .file-wrap .file-sidebar .file-pro-list .file-scroll .show-more a {
     position: relative;
     padding: 0 20px 0 15px;
-    color: #103C84
+    color: #2980B9
 }
 
 .file-wrap .file-sidebar .file-pro-list .file-scroll .show-more a:before {
@@ -7032,7 +7032,7 @@ textarea.form-control {
 }
 
 .account-page .main-wrapper .account-content .account-box .account-btn {
-    background: #103C84;
+    background: #2980B9;
     border: 0;
     display: block;
     font-size: 22px;
@@ -7166,7 +7166,7 @@ textarea.form-control {
 }
 
 #loader-wrapper #loader .loader-ellips .loader-ellips__dot:nth-child(2) {
-    background: #103C84;
+    background: #2980B9;
     left: 0;
     animation-name: slide
 }
@@ -7264,8 +7264,8 @@ textarea.form-control {
 }
 
 .add-btn {
-    background-color: #103C84;
-    border: 1px solid #103C84;
+    background-color: #2980B9;
+    border: 1px solid #2980B9;
     color: #fff;
     float: right;
     font-weight: 500;
@@ -7462,7 +7462,7 @@ textarea.form-control {
 }
 
 .filter-row .add-emp-section a.active i {
-    color: #103C84
+    color: #2980B9
 }
 
 .filter-row .add-emp-section a i {
@@ -7472,7 +7472,7 @@ textarea.form-control {
 }
 
 .comment-sec {
-    background: #103C84;
+    background: #2980B9;
     width: 30px;
     height: 30px;
     position: absolute;
@@ -7492,7 +7492,7 @@ textarea.form-control {
 .emp-card .user-img-sec img {
     width: 90px;
     height: 90px;
-    border: 1.4px solid #103C84;
+    border: 1.4px solid #2980B9;
     margin: 30px 0 0;
     padding: 3px;
     border-radius: 50%
@@ -7508,7 +7508,7 @@ textarea.form-control {
 }
 
 .emp-card .user-img-sec h6.bg-1 {
-    background-color: #103C84
+    background-color: #2980B9
 }
 
 .emp-card .client-img-li {
@@ -7536,7 +7536,7 @@ textarea.form-control {
     font-weight: 700;
     color: #fff;
     width: 100%;
-    background-color: #103C84;
+    background-color: #2980B9;
     border-radius: 5px;
     padding: 10px 0
 }
@@ -7563,7 +7563,7 @@ textarea.form-control {
 
 #pills-sub-tab .nav-link.active {
     background: 0 0;
-    color: #103C84
+    color: #2980B9
 }
 
 #pills-sub-tab .nav-link i {
@@ -7595,8 +7595,8 @@ textarea.form-control {
 
 .btn-add-emp,
 .btn-add-emp:focus {
-    background-color: #103C84;
-    border-color: #103C84;
+    background-color: #2980B9;
+    border-color: #2980B9;
     width: 200px;
     border: 4px solid #ffe3e5;
     border-radius: 50px
@@ -7619,7 +7619,7 @@ textarea.form-control {
 .punch-finger i {
     font-size: 35px;
     margin-right: 15px;
-    color: #103C84;
+    color: #2980B9;
     margin-top: 2px
 }
 
@@ -7636,7 +7636,7 @@ textarea.form-control {
 }
 
 .punch-finger .punch-det p {
-    color: #103C84;
+    color: #2980B9;
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 0
@@ -7843,7 +7843,7 @@ textarea.form-control {
 }
 
 .kanban-cont .kanban-list .kanban-header .status-title {
-    color: #103C84;
+    color: #2980B9;
     font-size: 16px;
     font-weight: 700
 }
@@ -7880,7 +7880,7 @@ textarea.form-control {
 }
 
 .kanban-list .task-board-top span:nth-child(1) {
-    color: #103C84
+    color: #2980B9
 }
 
 .kanban-list .task-board-top span:nth-child(2) {
@@ -7916,8 +7916,8 @@ textarea.form-control {
 
 .bg-inverse-primary {
     background: #eef7ff;
-    color: #103C84 !important;
-    border: .2px solid #103C84
+    color: #2980B9 !important;
+    border: .2px solid #2980B9
 }
 
 .kanban-footer .avatar-title {
@@ -8042,7 +8042,7 @@ textarea.form-control {
 }
 
 .chat-main-row .chat-main-wrapper .chat-window .fixed-header .user-details .typing-text {
-    color: #103C84;
+    color: #2980B9;
     font-size: 12px;
     text-transform: lowercase
 }
@@ -8567,7 +8567,7 @@ textarea.form-control {
 }
 
 .chat-footer .btn-custom {
-    background: #103C84;
+    background: #2980B9;
     color: #fff
 }
 
@@ -8600,7 +8600,7 @@ textarea.form-control {
 }
 
 .project-card-det .project-text {
-    color: #103C84;
+    color: #2980B9;
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 20px
@@ -8621,7 +8621,7 @@ textarea.form-control {
 
 .project-card-det .cost-li h6 {
     text-align: center;
-    color: #103C84;
+    color: #2980B9;
     font-size: 15px;
     font-weight: 600
 }
@@ -8634,7 +8634,7 @@ textarea.form-control {
 .team-li img {
     width: 30px;
     height: 30px;
-    border: 1px solid #103C84 !important;
+    border: 1px solid #2980B9 !important;
     border-radius: 50px
 }
 
@@ -8698,7 +8698,7 @@ textarea.form-control {
 }
 
 .search-result u {
-    color: #103C84
+    color: #2980B9
 }
 
 .search-result p {
@@ -8783,8 +8783,8 @@ textarea.form-control {
 }
 
 .roles-menu ul li.active a {
-    border-color: #103C84;
-    color: #103C84
+    border-color: #2980B9;
+    color: #2980B9
 }
 
 .roles-menu ul li a {
@@ -8797,7 +8797,7 @@ textarea.form-control {
 
 .roles-menu ul li a:hover {
     background-color: #eee;
-    border-color: #103C84
+    border-color: #2980B9
 }
 
 .roles-menu ul li a:hover .role-action {
@@ -8978,8 +8978,8 @@ textarea.form-control {
 
 .job-list .job-types {
     background-color: transparent;
-    border: 1px solid #103C84;
-    color: #103C84;
+    border: 1px solid #2980B9;
+    color: #2980B9;
     display: inline-block;
     text-align: center;
     border-radius: 4px;
@@ -8987,7 +8987,7 @@ textarea.form-control {
 }
 
 .job-list .job-types:hover {
-    background: #103C84;
+    background: #2980B9;
     color: #fff
 }
 
@@ -9080,7 +9080,7 @@ textarea.form-control {
     font-family: fontawesome;
     margin: 0;
     position: relative;
-    color: #103C84;
+    color: #2980B9;
     float: left;
     margin-left: -20px;
     display: block;
@@ -9089,8 +9089,8 @@ textarea.form-control {
 }
 
 .job-btn {
-    border: 2px solid #103C84;
-    color: #103C84;
+    border: 2px solid #2980B9;
+    color: #2980B9;
     display: block;
     font-size: 16px;
     font-weight: 600;
@@ -9103,7 +9103,7 @@ textarea.form-control {
 }
 
 .job-btn:hover {
-    background-color: #103C84;
+    background-color: #2980B9;
     color: #fff
 }
 
@@ -9113,7 +9113,7 @@ textarea.form-control {
 }
 
 .info-list span {
-    color: #103C84;
+    color: #2980B9;
     float: left;
     font-size: 20px;
     line-height: 14px
@@ -9261,7 +9261,7 @@ button.close {
 }
 
 .profile-view .profile-basic .profile-info-left .staff-msg .btn-custom {
-    background: #103C84;
+    background: #2980B9;
     color: #fff
 }
 
@@ -9495,12 +9495,12 @@ button.close {
 }
 
 .topics .topic-title a i {
-    color: #103C84;
+    color: #2980B9;
     margin-right: 5px
 }
 
 .topics .topic-title a span {
-    color: #103C84
+    color: #2980B9
 }
 
 .topics .topics-list {

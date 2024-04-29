@@ -6,9 +6,9 @@ import { deleteDB, openDB } from 'idb';
 
 class User {
     static async responseAfterLogin(res) {
-        const { access_token, name, user_id, id_entreprise, role, contact, adresse, email } = res.data;
+        const { access_token, name, user_id, id_entreprise, role, contact, adresse, email, mode } = res.data;
 
-        await AppStorage.store(access_token, name, user_id, id_entreprise, role, contact, adresse, email);
+        await AppStorage.store(access_token, name, user_id, id_entreprise, role, contact, adresse, email,mode);
 
         const apiCalls = [
             { endpoint: 'getclients', storageKey: 'clients' },
@@ -35,6 +35,7 @@ class User {
 
             { endpoint: 'gettauxcompagnies', storageKey: 'tauxcompagnies' },
             { endpoint: 'gettauxapporteurs', storageKey: 'tauxapporteurs' },
+            { endpoint: 'getfileavenants', storageKey: 'fileavenants' },
         ];
 
         const accessToken = AppStorage.getToken();

@@ -62,7 +62,7 @@
                     <td v-text="contrat.nom_client"></td>
                     <td v-text="contrat.nom_compagnie"></td>
                     <td v-text="contrat.nom_branche"></td>
-                    <td v-text="formatDate(contrats.effet_police)"></td>
+                    <td v-text="formatDate(contrat.effet_police)"></td>
                     <td v-text="formatDate(contrat.expire_le)"></td>
                     <td class="text-end ico-sec d-flex justify-content-end">
                       <router-link :to="{
@@ -89,7 +89,7 @@
               </table>
             </div>
 
-            <deletecontrat v-bind:contrattoedit="contrattoedit"></deletecontrat>
+            <deletecontrat v-bind:contrattoedit="contrattoedit" @delete-contrat="refresh"></deletecontrat>
 
             <!-- <pagination align="center" :data="contrats" :limit="5" :current_page="contrats.current_page"
               :last_page="contrats.last_page" @pagination-change-page="getContrat">
@@ -215,6 +215,13 @@ export default {
         this.getContrat();
       }
     },
+
+    refresh() {
+      // Récupérer les clients depuis IndexedDB après l'ajout d'un nouveau client
+      AppStorage.getContrats().then((result) => {
+        this.contrats = result;
+      });
+    }
   },
 };
 </script>
