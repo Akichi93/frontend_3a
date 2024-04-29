@@ -181,7 +181,7 @@
                                     </div>
                                     <div>
                                       <iframe
-                                        :src="`https://fl4ir.loca.lt/images/piece_avenant/${file.nom_file}`"
+                                        :src="`https://back3a.fl4ir.com/images/piece_avenant/${file.nom_file}`"
                                         type=""
                                         width="750"
                                         height="500"
@@ -351,7 +351,7 @@ export default {
 
     fetchFile(uuidAvenant) {
       axios
-        .get(`https://fl4ir.loca.lt/api/auth/fileavenants/${uuidAvenant}`)
+        .get(`https://back3a.fl4ir.com/api/auth/fileavenants/${uuidAvenant}`)
         .then((response) => {
           this.files = response.data;
         })

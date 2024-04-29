@@ -61,7 +61,7 @@ export default {
       const uuid = this.avenantoedit.uuidAvenant;
       alert(uuid)
       axios
-        .get(`https://fl4ir.loca.lt/api/auth/fileavenants/${uuid}`)
+        .get(`https://back3a.fl4ir.com/api/auth/fileavenants/${uuid}`)
         .then((response) => {
           this.files = response.data;
         })
